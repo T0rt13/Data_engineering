@@ -1,0 +1,8 @@
+product_id,name,category,price,quantity
+P008,Laptop,Electronics,888.88,4
+P009,Mouse,Electronics,18.88,8
+P010,Desk,Furniture,288.88,4
+P011,Chair,Furniture,148.88,18
+P012,Monitor,Electronics,288.88,14
+P013,Keyboard,Electronics,78.88,38
+P014,Lamp,Furniture,48.88,28
