@@ -24,7 +24,16 @@ mostPopular = connections.sort(F.col("connections").desc()).first()
 mostPopularName = names.filter(F.col("id") == mostPopular[0]).select("name").first()
 
 print()
-print(str(mostPopularName[0]) + " is mst popular hero, with " + str(mostPopular[1]) + " appearances!")
+print(str(mostPopularName[0]) + " is most popular hero, with " + str(mostPopular[1]) + " appearances!")
+print()
+
+# Find the minimum number of connections, then retrieve and display
+# all heroes that have that minimum connection count by joining with
+# the names DataFrame to show their names instead of just their IDs.
+leastPopular = connections.agg(F.min("connections")).first()[0]
+leastPopularNames = connections.filter(F.col("connections") == leastPopular)
+leastPopularNames.join(names, "id").show()
+
 print()
 
 spark.stop()
