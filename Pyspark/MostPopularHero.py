@@ -25,6 +25,7 @@ mostPopularName = names.filter(F.col("id") == mostPopular[0]).select("name").fir
 
 print()
 print(str(mostPopularName[0]) + " is most popular hero, with " + str(mostPopular[1]) + " appearances!")
+<<<<<<< HEAD
 print()
 
 # Find the minimum number of connections, then retrieve and display
@@ -34,6 +35,8 @@ leastPopular = connections.agg(F.min("connections")).first()[0]
 leastPopularNames = connections.filter(F.col("connections") == leastPopular)
 leastPopularNames.join(names, "id").show()
 
+=======
+>>>>>>> 5cf8449851944b62f173fe47a250d0a62e688edd
 print()
 
 spark.stop()
