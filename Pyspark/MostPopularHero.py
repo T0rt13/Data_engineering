@@ -24,7 +24,7 @@ mostPopular = connections.sort(F.col("connections").desc()).first()
 mostPopularName = names.filter(F.col("id") == mostPopular[0]).select("name").first()
 
 print()
-print(str(mostPopularName[0]) + " is mst popular hero, with " + str(mostPopular[1]) + " appearances!")
+print(str(mostPopularName[0]) + " is most popular hero, with " + str(mostPopular[1]) + " appearances!")
 print()
 
 spark.stop()
