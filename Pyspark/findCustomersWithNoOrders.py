@@ -21,7 +21,7 @@ orders = spark.read.csv("orders.csv", header=True)
 # Anti left join to return rows in left DataFrame with no matching rows in right
 no_orders = customers.join(
     orders, 
-    on=customers["customer_id"] == orders["order_id"],
+    on=customers["customer_id"] == orders["customer_id"],
     how="left_anti"
 )
 
