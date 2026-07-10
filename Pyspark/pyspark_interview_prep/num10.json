@@ -1,0 +1,32 @@
+[
+  {
+    "customer": {
+      "id": 1,
+      "city": "NY"
+    }
+  },
+  {
+    "customer": {
+      "id": 2,
+      "city": "Chicago"
+    }
+  },
+  {
+    "customer": {
+      "id": 3,
+      "city": "Los Angeles"
+    }
+  },
+  {
+    "customer": {
+      "id": 4,
+      "city": "Seattle"
+    }
+  },
+  {
+    "customer": {
+      "id": 5,
+      "city": "Boston"
+    }
+  }
+]

@@ -1,0 +1,14 @@
+customer_id,city,segment
+001,New York,Consumer
+002,Chicago,Corporate
+003,New York,Corporate
+004,Seattle,Consumer
+005,Chicago,Home Office
+006,Boston,Corporate
+007,Seattle,Consumer
+008,New York,Home Office
+009,Boston,Consumer
+010,Chicago,Corporate
+011,Seattle,
+012,New York,Consumer
+013,,Corporate
