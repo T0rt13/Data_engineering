@@ -33,7 +33,7 @@ spark = (
     # and metadata files will be stored.
     .config(
         "spark.sql.catalog.glue_catalog.warehouse",
-        "s3://<bucket>/iceberg/"
+        "s3://snowflake-882470096331-us-east-2-an/iceberg/"
     )
 
     # Configure Iceberg to use the S3FileIO implementation
@@ -94,19 +94,19 @@ customers_schema = StructType([
 orders_df = spark.read.options(
     header=True,
 ).schema(orders_schema).csv(
-    "s3://<bucket>/orders.csv"
+    "s3://snowflake-882470096331-us-east-2-an/orders.csv"
 )
 
 products_df = spark.read.options(
     header=True,
 ).schema(products_schema).csv(
-    "s3://<bucket>/products.csv"
+    "s3://snowflake-882470096331-us-east-2-an/products.csv"
 )
 
 customers_df = spark.read.options(
     header=True,
 ).schema(customers_schema).csv(
-    "s3://<bucket>/customers.csv"
+    "s3://snowflake-882470096331-us-east-2-an/customers.csv"
 )
 
 # print schemas
@@ -244,12 +244,12 @@ orders_df_clean = orders_df_clean.withColumn(
 )
 
 # cast unit_price and total_amount to a float, remove $ symbol, ensure values are positive
-price = F.regexp_replace(F.col("unit_price"), r"\$", "").try_cast("float")
+price = F.regexp_replace(F.col("unit_price"), r"\$", "").try_cast("decimal(10,2)")
 orders_df_clean = orders_df_clean.withColumn(
     "unit_price",
     F.when(price >= 0, price)
 )
-total_amount = F.regexp_replace(F.col("total_amount"), r"\$", "").try_cast("float")
+total_amount = F.regexp_replace(F.col("total_amount"), r"\$", "").try_cast("decimal(10,2)")
 orders_df_clean = orders_df_clean.withColumn(
     "total_amount",
     F.when(total_amount >= 0, total_amount)
